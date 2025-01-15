@@ -1,0 +1,21 @@
+flutter/ephemeral
+
+# Flutter specific
+.dart_tool/
+.build/
+.idea/
+*.iml
+.vscode/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Firebase configuration files (replace the filename with the actual file name)
+google-services.json
+GoogleService-Info.plist
+
+# Flutter pubspec.lock (optional, if you want to ignore)
+pubspec.lock
+
+# Other sensitive or unnecessary files
+*.key
+*.pem
