@@ -8,6 +8,7 @@ import 'package:nike/components/custom_alert_dialog.dart';
 import 'package:nike/components/custom_button.dart';
 import 'package:nike/components/custom_textfield.dart';
 import 'package:nike/helper/helper_function.dart';
+import 'package:nike/screens/forgot_password_screen.dart';
 import 'package:nike/screens/splash_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -66,9 +67,9 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFF7F7F9),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFF7F7F9),
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: GestureDetector(
@@ -78,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Container(
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color(0xFFF7F7F9),
+                color: Colors.white,
               ),
               child: Center(
                 child: Icon(
@@ -136,7 +137,12 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: EdgeInsets.only(left: 220.0.w),
               child: GestureDetector(
-                onTap: () => context.go('/forgot'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ForgotPasswordScreen()));
+                },
                 child: Text("Recovery Password",
                     style: GoogleFonts.poppins(
                         fontSize: 13.sp, color: const Color(0xFF707B81))),
