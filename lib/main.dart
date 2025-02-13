@@ -3,7 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nike/firebase_options.dart';
+import 'package:nike/provider/cart_provider.dart';
+import 'package:nike/provider/favorite_provider.dart';
 import 'package:nike/routers/router.dart';
+import 'package:provider/provider.dart';
 // import 'package:timezone/data/latest.dart' as tz;
 
 // final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -11,7 +14,7 @@ import 'package:nike/routers/router.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [ChangeNotifierProvider(create: (context) => FavoriteProvider(),),ChangeNotifierProvider(create: (context) => CartProvider()),], child: MyApp(),),);
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

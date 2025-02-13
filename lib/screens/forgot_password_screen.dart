@@ -26,23 +26,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     super.dispose();
   }
 
-  // Future passwordReset() async {
-  //   try {
-  //     await FirebaseAuth.instance
-  //         .sendPasswordResetEmail(email: _emailController.text.trim());
-
-  //   } on FirebaseAuthException catch (e) {
-  //     print(e);
-  //     showDialog(
-  //         context: context,
-  //         builder: (context) {
-  //           return AlertDialog(
-  //             content: Text(e.message.toString()),
-  //           );
-  //         });
-  //   }
-  // }
-
   Future passwordReset() async {
     final email = _emailController.text.trim();
 
@@ -109,10 +92,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding:  EdgeInsets.all(8.0.r),
           child: GestureDetector(
             onTap: () {
-              context.go('/login');
+              Navigator.pop(context);
             },
             child: Container(
               decoration: const BoxDecoration(

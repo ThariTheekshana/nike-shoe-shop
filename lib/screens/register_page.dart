@@ -1,4 +1,5 @@
 // screens/register_page.dart
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,56 +26,69 @@ class _RegisterPageState extends State<RegisterPage> {
       TextEditingController();
 
   // register method
-  void registerUser() async {
-    // show loading circle
-    showDialog(
-        builder: (context) => const Center(
-              child: CircularProgressIndicator(
-                color: Color(0xFF0D6EFD),
-              ),
-            ),
-        context: context);
+ // register method
+void registerUser() async {
+  // show loading circle
+  showDialog(
+    context: context,
+    builder: (context) => const Center(
+      child: CircularProgressIndicator(
+        color: Color(0xFF0D6EFD),
+      ),
+    ),
+  );
 
-    // make sure password match
-    if (_passwordController.text != _confirmpasswordController.text) {
-      // pop loading circle
-      Navigator.pop(context);
-
-      // show eror message to user
-      CustomAlertDialog(message: "Password don't match!!!");
-    }
-
-    // if password do match
-    else {
-      // try creating the user
-      try {
-        //create the user
-        UserCredential? userCredential =
-            await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: _emailController.text,
-          password: _passwordController.text,
-        );
-
-        context.go('/home');
-
-        // pop loading circle
-        Navigator.pop(context);
-      } on FirebaseAuthException catch (e) {
-        // pop loading circle
-        Navigator.pop(context);
-
-        // display error message to user
-        displayMessagToUser(e.code, context);
-      }
-    }
+  // make sure passwords match
+  if (_passwordController.text != _confirmpasswordController.text) {
+    Navigator.pop(context); // close loading dialog
+    CustomAlertDialog(message: "Passwords don't match!!!");
+    return; // exit function
   }
+
+  try {
+    // Create user
+    UserCredential userCredential =
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+    );
+
+    // Ensure userCredential is not null
+    if (userCredential.user != null) {
+      // Save user details in Firestore
+      await saveUserData(userCredential.user!.uid, _nameController.text, _emailController.text);
+    }
+
+    Navigator.pop(context); // close loading dialog
+    context.go('/home'); // navigate to home page
+  } on FirebaseAuthException catch (e) {
+    Navigator.pop(context); // close loading dialog
+    displayMessagToUser(e.code, context);
+  }
+}
+
+
+ Future<void> saveUserData(String uid, String name, String email) async {
+  try {
+    await FirebaseFirestore.instance.collection('users').doc(uid).set({
+      'name': name,
+      'email': email,
+      'createdAt': FieldValue.serverTimestamp(), 
+      'phoneNumber': '', // Placeholder
+      'profileImageUrl': '', // Placeholder for profile image URL
+    });
+  } catch (e) {
+    print("Error saving user data: $e");
+  }
+}
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFF7F7F9),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFF7F7F9),
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: GestureDetector(
@@ -84,7 +98,7 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Container(
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color(0xFFF7F7F9),
+                color: Colors.white,
               ),
               child: Center(
                 child: Icon(
