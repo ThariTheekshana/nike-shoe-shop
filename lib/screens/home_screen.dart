@@ -3,9 +3,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nike/components/bottom_nav_two.dart';
 import 'package:nike/components/shoe_page.dart';
+import 'package:nike/screens/cart_screen.dart';
 import 'package:nike/screens/drawer_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,30 +22,30 @@ class _HomeScreenState extends State<HomeScreen>
   late final TabController _tabController;
   int _selectedTabIndex = 0;
 
+  void fetchUserName() async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      DocumentSnapshot userDoc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .get();
 
-void fetchUserName() async {
-  User? user = FirebaseAuth.instance.currentUser;
-  if (user != null) {
-    DocumentSnapshot userDoc = 
-        await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
-
-    if (userDoc.exists) {
-      String userName = userDoc['name'];
-      print("Current User Name: $userName");
+      if (userDoc.exists) {
+        String userName = userDoc['name'];
+        print("Current User Name: $userName");
+      } else {
+        print("User document does not exist.");
+      }
     } else {
-      print("User document does not exist.");
+      print("No user is currently logged in.");
     }
-  } else {
-    print("No user is currently logged in.");
   }
-}
 
   @override
   void initState() {
     super.initState();
-     fetchUserName();
+    fetchUserName();
     _tabController = TabController(length: 3, vsync: this);
-    
   }
 
   @override
@@ -75,19 +77,26 @@ void fetchUserName() async {
         backgroundColor: Color(0xFFF7F7F9),
         iconTheme: IconThemeData(color: Colors.black, size: 25.sp),
         actions: [
-          Padding(
-              padding: EdgeInsets.only(right: 20.0.w),
-              child: Container(
-                width: 40.w,
-                height: 40.h,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.r),
-                    color: Colors.white),
-                child: Icon(
-                  Icons.shopping_cart_outlined,
-                  size: 25.sp,
-                ),
-              ))
+          GestureDetector(
+            onTap: () {
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => CartScreen()));
+              context.go('/cart');
+            },
+            child: Padding(
+                padding: EdgeInsets.only(right: 20.0.w),
+                child: Container(
+                  width: 40.w,
+                  height: 40.h,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.r),
+                      color: Colors.white),
+                  child: Icon(
+                    Icons.shopping_cart_outlined,
+                    size: 25.sp,
+                  ),
+                )),
+          )
         ],
       ),
       drawer: const CustomDrawer(),

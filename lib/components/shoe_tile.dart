@@ -45,10 +45,10 @@ class _ShoeTileState extends State<ShoeTile> {
     return Stack(
       children: [
         Container(
-          width: 150,
-          height: 190,
+          width: 150.w,
+          height: 190.h,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15), color: Colors.white),
+              borderRadius: BorderRadius.circular(15.r), color: Colors.white),
           child: Column(
             children: [
               GestureDetector(
@@ -63,39 +63,39 @@ class _ShoeTileState extends State<ShoeTile> {
                   });
                 },
                 child: Padding(
-                  padding: EdgeInsets.only(right: 100, top: 10),
+                  padding: EdgeInsets.only(right: 100.w, top: 10.h),
                   child: Icon(
                     isFavorite ? Icons.favorite : Icons.favorite_border,
-                    size: 20,
+                    size: 20.sp,
                     color: isFavorite ? Colors.red : Colors.black,
                   ),
                 ),
               ),
               Image.asset(
                 widget.imagePath,
-                width: 180,
-                height: 80,
+                width: 180.w,
+                height: 80.h,
                 fit: BoxFit.cover,
               ),
               Padding(
-                padding: EdgeInsets.only(right: 25),
+                padding: EdgeInsets.only(right: 25.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(widget.textOne,
                         style: TextStyle(
-                            fontSize: 13,
+                            fontSize: 13.sp,
                             fontWeight: FontWeight.w500,
                             color: Colors.blue)),
                     Text(widget.textTwo,
                         style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 15.sp,
                             fontWeight: FontWeight.w500,
                             color: Colors.grey)),
-                    SizedBox(height: 10),
+                    SizedBox(height: 10.h),
                     Text('\$${widget.price.toStringAsFixed(2)}',
                         style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.w500,
                             color: Colors.black))
                   ],
@@ -106,8 +106,8 @@ class _ShoeTileState extends State<ShoeTile> {
         ),
         if (widget.showAddButton)
           Positioned(
-            top: 155,
-            left: 115,
+            top: 155.h,
+            left: 115.w,
             child: GestureDetector(
               onTap: () {
                 print(
@@ -117,16 +117,36 @@ class _ShoeTileState extends State<ShoeTile> {
                   'textOne': widget.textOne,
                   'textTwo': widget.textTwo,
                   'price': widget.price
+
                 });
+
+                 // Show Snackbar
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            "Added to cart",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          duration: Duration(seconds: 2),
+          backgroundColor: Color(0xFF0D6EFD), // Blue color
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.r),
+          ),
+        ),
+      );
               },
               child: Container(
-                width: 35,
-                height: 35,
+                width: 35.w,
+                height: 35.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      bottomRight: Radius.circular(15)),
-                  color: Colors.blue,
+                      topLeft: Radius.circular(15.r),
+                      bottomRight: Radius.circular(15.r)),
+                  color: Color(0xFF0D6EFD),
                 ),
                 child: const Icon(
                   Icons.add,
@@ -138,12 +158,12 @@ class _ShoeTileState extends State<ShoeTile> {
         if (widget.showAddButton == false)
           Positioned(
             top: 139.h,
-            left: 100,
+            left: 100.w,
             child: Row(
               children: [
                 Container(
-                  width: 15,
-                  height: 15,
+                  width: 15.w,
+                  height: 15.h,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: widget.index == 0 || widget.index == 1
@@ -153,8 +173,8 @@ class _ShoeTileState extends State<ShoeTile> {
                 ),
                 SizedBox(width: 5.w),
                 Container(
-                  width: 15,
-                  height: 15,
+                  width: 15.w,
+                  height: 15.h,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: widget.index == 0 || widget.index == 1
