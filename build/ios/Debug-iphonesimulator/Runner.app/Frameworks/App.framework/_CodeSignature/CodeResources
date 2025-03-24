@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		DHitdLzRayzfEtEmVNYbTDZNy1k=
+		xFYp5RakBbOz7YGSKoATWRtZi1M=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		pHAMtIZzGIDGc4t/na6Smk6sEmw=
+		Oz3Mx3JCK2cJoLkEOaNLmmGOiGI=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -36,6 +36,14 @@
 		<data>
 		+Aqk2vnVIjrdZEKYE0quzX9jqrY=
 		</data>
+		<key>flutter_assets/assets/images/Hero%20Image.png</key>
+		<data>
+		vfTmLg6GffJJrwft2uZeohHw0Cs=
+		</data>
+		<key>flutter_assets/assets/images/Hero%20Image.smallpng.png</key>
+		<data>
+		0NjvBoAGZfVyvpCJkct3UlWByZQ=
+		</data>
 		<key>flutter_assets/assets/images/Highlight_05.png</key>
 		<data>
 		8CSOSYVMINkaOVJgxWfW26XPazw=
@@ -47,6 +55,22 @@
 		<key>flutter_assets/assets/images/bag2.png</key>
 		<data>
 		d2IGCnvr+ln4FHg2CbG4f6kBfak=
+		</data>
+		<key>flutter_assets/assets/images/bigshoe.png</key>
+		<data>
+		wwqcsZ75B+sIbp+vvaqq015HpFY=
+		</data>
+		<key>flutter_assets/assets/images/bigshoe2.png</key>
+		<data>
+		4EICiyQpY49l2kb8dlPiSKowcUE=
+		</data>
+		<key>flutter_assets/assets/images/bigshoe3.png</key>
+		<data>
+		35tkfCoF0/jHQURvgXhNFMJH4ko=
+		</data>
+		<key>flutter_assets/assets/images/bigshoe4.png</key>
+		<data>
+		Vb9bMQNTbalv4DSUEqiS+o/cjGE=
 		</data>
 		<key>flutter_assets/assets/images/blueNike.svg</key>
 		<data>
@@ -214,7 +238,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		7iqVTlWkE8ec/FKYGSKkV5DUooY=
+		3LIbqoqJFpPqMcvYVnQgiAiSSP0=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -5403,14 +5427,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TrkKRHqCA1hRs6n29GgG8DiQqElzpsz5q7HX2SWwgqo=
+			4PtG363v/340DDkDr/fEgPpPYj4BB+rFNo4g2BlU7AI=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mxRBkRN28BXe1leaMHYrXoXcp1UAl0kAeFPf41ETQZM=
+			tf5SsWlhjlkR1tyYnK762Lr8sBqAmi0mFuLJf84l62k=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -5448,6 +5472,20 @@
 			mxq4naYMpw1wmDioMzvcNocHR1Hnm7182HoJLfRdjdA=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/Hero%20Image.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			O9OliRqIU81r+z6wFYXGdJUwV4QQgPPVtXMVgU2ezGE=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/Hero%20Image.smallpng.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			midMLkmKekWTbwPRTW52+PxEgdHEZ36VGWiqhnF/Oos=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/images/Highlight_05.png</key>
 		<dict>
 			<key>hash2</key>
@@ -5467,6 +5505,34 @@
 			<key>hash2</key>
 			<data>
 			UB7ni3vaQCMs3H2tFTN5qblIUZuWQ/0iDW4NC9bk6pI=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/bigshoe.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dVfz3DkIpI3jZNE3vIcAeI4AZSMlsdok2iSxo8x9OoU=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/bigshoe2.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LuJ/0eUqfSDo79Hm1PCUYFF3ARcrCl31hirpFmG+Rng=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/bigshoe3.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			eZETOD8i3GEuBiuoxjqi8MKkIiElHa6Wg1qOvzq12Qg=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/bigshoe4.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nRvTHF8KGgC+PIfZNdetX5oPPhYguAH1ZMpk1y70kWo=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/blueNike.svg</key>
@@ -5760,7 +5826,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BoIRCzEpmTpUMiOaAtQvNyj0VflELIVu3VF2r4F43zc=
+			0D4C9pbOm4Pk/S7FQZHzf3BICW9Tno1Td6P7SgTEaQo=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

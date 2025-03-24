@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nike/components/shoe_tile.dart';
+import 'package:nike/screens/details_screen.dart';
 
 class ShoeCategoryPage extends StatefulWidget {
   const ShoeCategoryPage({super.key});
@@ -50,49 +51,99 @@ class _ShoeCategoryPageState extends State<ShoeCategoryPage> {
             padding: EdgeInsets.only(left: 20.0.w),
             child: Row(
               children: [
-                const ShoeTile(
-                  index: 0,
-                  imagePath: 'assets/images/nike_jordan.png',
-                  textOne: 'BEST SELLER',
-                  textTwo: 'Nike Jordan',
-                  price: 302.00,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ShoeDetailPage(
+                                textTwo: 'Nike Jordan',
+                                price: 302.00,
+                                imagePath: 'assets/images/bigshoe.png')));
+                  },
+                  child: Hero(
+                    tag: 'shoeImage',
+                    child: const ShoeTile(
+                      index: 0,
+                      imagePath: 'assets/images/bigshoe.png',
+                      textOne: 'BEST SELLER',
+                      textTwo: 'Nike Jordan',
+                      price: 302.00,
+                    ),
+                  ),
                 ),
                 SizedBox(
                   width: 20.w,
                 ),
-                const ShoeTile(
-                  index: 1,
-                  imagePath: 'assets/images/nike_air_max.png',
-                  textOne: 'BEST SELLER',
-                  textTwo: 'Nike Air Max',
-                  price: 752.00,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ShoeDetailPage(
+                                  textTwo: 'Nike Air Max',
+                                  price: 752.00,
+                                  imagePath: 'assets/images/bigshoe2.png',
+                                )));
+                  },
+                  child: const ShoeTile(
+                    index: 1,
+                    imagePath: 'assets/images/bigshoe2.png',
+                    textOne: 'BEST SELLER',
+                    textTwo: 'Nike Air Max',
+                    price: 752.00,
+                  ),
                 ),
                 SizedBox(
                   width: 20.w,
                 ),
-                const ShoeTile(
-                   index: 2,
-                  imagePath: 'assets/images/nike_club.png',
-                  textOne: 'BEST SELLER',
-                  textTwo: 'Nike Club Max',
-                  price: 47.7,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ShoeDetailPage(
+                                  textTwo: 'Nike Club Max',
+                                  price: 47.70,
+                                  imagePath: 'assets/images/bigshoe3.png',
+                                )));
+                  },
+                  child: const ShoeTile(
+                    index: 2,
+                    imagePath: 'assets/images/bigshoe3.png',
+                    textOne: 'BEST SELLER',
+                    textTwo: 'Nike Club Max',
+                    price: 47.70,
+                  ),
                 ),
                 SizedBox(
                   width: 20.w,
                 ),
-                const ShoeTile(
-                   index: 3,
-                  imagePath: 'assets/images/nike_air_max_org.png',
-                  textOne: 'BEST SELLER',
-                  textTwo: 'Nike Air Max',
-                  price: 57.6,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ShoeDetailPage(
+                                  textTwo: 'Nike Air Max',
+                                  price: 57.60,
+                                  imagePath: 'assets/images/bigshoe4.png',
+                                )));
+                  },
+                  child: const ShoeTile(
+                    index: 3,
+                    imagePath: 'assets/images/bigshoe4.png',
+                    textOne: 'BEST SELLER',
+                    textTwo: 'Nike Air Max',
+                    price: 57.60,
+                  ),
                 ),
               ],
             ),
           ),
         ),
         SizedBox(
-          height: 20.h,
+          height: 10.h,
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0.w),

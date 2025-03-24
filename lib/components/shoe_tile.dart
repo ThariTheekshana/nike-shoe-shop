@@ -117,27 +117,26 @@ class _ShoeTileState extends State<ShoeTile> {
                   'textOne': widget.textOne,
                   'textTwo': widget.textTwo,
                   'price': widget.price
-
                 });
 
-                 // Show Snackbar
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            "Added to cart",
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          duration: Duration(seconds: 2),
-          backgroundColor: Color(0xFF0D6EFD), // Blue color
-          behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.r),
-          ),
-        ),
-      );
+                // Show Snackbar
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      "Added to cart",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    duration: Duration(seconds: 2),
+                    backgroundColor: Color(0xFF0D6EFD), // Blue color
+                    behavior: SnackBarBehavior.floating,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                  ),
+                );
               },
               child: Container(
                 width: 35.w,
@@ -157,7 +156,7 @@ class _ShoeTileState extends State<ShoeTile> {
           ),
         if (widget.showAddButton == false)
           Positioned(
-            top: 139.h,
+            top: 160.h,
             left: 100.w,
             child: Row(
               children: [
